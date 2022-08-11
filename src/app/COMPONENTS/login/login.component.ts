@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
 
   }
 
-  /*Función Para login normal  */
+  /*Función Para login Reactivo */
   logIn(){
     this.user=this.contactForm.value;
     this.userService.signIn(this.user).subscribe(
@@ -62,9 +62,4 @@ export class LoginComponent implements OnInit {
 
     );//Subscribe end
   }
-  /*Función para formulario Reactivo */
-  send(){
-    console.warn(this.contactForm.value);
-  }
-
 }

@@ -1,4 +1,12 @@
-<pre>
+<section class=" products">
+  <div class="card border-success " *ngFor="let dish of menu.results">
+    <div class="card-header">Dish: {{dish.title}}</div>
+    <div class="card-body text-success">
+      <img class="card-img-top"src={{dish.image}} alt="">
+     <a class="btn detail-btn btn-primary"> Details <i class="fa-solid fa-plus"></i></a>
+     <a class="btn Eliminate-btn btn-primary"> Eliminate <i class="fa-solid fa-x"></i></a>
+    </div>
+  </div>
+</section>
 
-  {{menu|json}}
-</pre>
+

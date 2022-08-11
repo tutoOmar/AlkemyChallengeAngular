@@ -1,0 +1,23 @@
+.card{
+  justify-content: center;
+  align-content: center;
+  margin: auto;
+  margin-top: 30px;
+  width: 300px;
+  height: 300px;
+}
+.demo {
+  -webkit-box-shadow: 13px 16px 10px 6px rgba(163,163,163,0.71);
+  box-shadow: 13px 16px 10px 6px rgba(163,163,163,0.71);
+}
+
+.form{
+  padding: 15px;
+  font-size: 1.3em;
+}
+.btn{
+  text-align: center;
+  align-items: center;
+  justify-items: auto;
+  margin-left: 35%;
+}

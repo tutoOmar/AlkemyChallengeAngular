@@ -1,12 +1,41 @@
-<section class=" products">
-  <div class="card border-success " *ngFor="let dish of menu.results">
-    <div class="card-header">Dish: {{dish.title}}</div>
-    <div class="card-body text-success">
-      <img class="card-img-top"src={{dish.image}} alt="">
-     <a class="btn detail-btn btn-primary"> Details <i class="fa-solid fa-plus"></i></a>
-     <a class="btn Eliminate-btn btn-primary"> Eliminate <i class="fa-solid fa-x"></i></a>
-    </div>
-  </div>
-</section>
+<nav class="navbar navbar-expand-lg bg-light">
+      <input
+      class="d-flex form-control me-2"
+      type="search"
+      placeholder="Search here"
+      [ngModel]="dish.Name"
+      (ngModelChange)="dish.Name = $event"
+      (ngModelChange)="search($event)"
+      />
+      <!-- Input que activa la función busqueda ante cualquier cambio.[ngbCollapse]="" -->
+       <button class="btn btn-outline-success" type="submit">Search</button>
+      <!-- Este botón es meramente decorativo porque la función de busqeuda se ejecuta al detectar un cambio de evento en el input -->
+</nav>
 
+<h1 >Search products</h1>
+<hr>
+
+
+<section class=" products">
+  <app-menu-dish
+  (addToMenuClick)="addToMenu($event)"
+  [Menu]="dish"
+  *ngFor="let dish of searchV"></app-menu-dish>
+</section>
+<!-- Llamado del hijo menu-dish, hacemos el For para enviar cada objeto del menu uno por uno
+    Este método recibe del padre Home [menu] en forma del objeto dish
+    El recibe del hijo el la funcion addtoMenuClick.
+-->
+
+<hr>
+<h1>Your menu</h1>
+<hr>
+<section class=" products">
+
+  <app-current-dishes
+  (subsToMenuClick)="subsToMenu($event)"
+  >
+  </app-current-dishes>
+</section>
+<!-- Llamado del hijo current-dishes, este solo envia el evento substoMenuClick al padre -->
 

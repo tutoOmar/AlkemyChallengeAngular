@@ -1,0 +1,66 @@
+# El proyecto arranca como archivo base y donde renderizaremos toda nuestra aplicación app.component.html
+
+En este archivo dejaremos de manera fija, el componente Header el cual tendrá un pequeño menú conformado por
+Nombre del Sitio, Home (como ruta) y Logout.
+De la misma forma el Router-outlet el cual varia en función de la ruta en la que nos encontremos.
+
+Dentro de la carpeta Componentes, por lógica estarán cada uno de los componentes separados en su carpeta indicada.
+
+COMPONENTS:
+
+-Header: Componente explicado anteriormente.
+
+- Home: Componente principal encargado de la interacción de gran parte de la aplicación. En el se renderizarán los
+menus buscados, una barra Nav con un input de busqueda, se renderizarán los productos buscados y se renderizarán los
+menus agregados.
+    Childs of Home: Este componente posee dos hijos componentes
+        -menu-dish : Es el componente que renderiza y muestra los menus buscados uno por uno,
+                      este componente hijo recibe un objeto unicamente y lo renderiza, un ciclo for se encarga de renderizar
+                      el resto de componentes.
+                      La comunicación es bidireccional con el padre, el hijo recibe el objeto del plato a renderizar
+                      Y al padre le envía la señal de clic en agregar.
+
+        -current-dishes : Es el componente encargado de renderizar los platos agregados por el usuario, este
+                          recibe directamente de un "services" el observable donde se ha almacenado los platos
+                          guardados, y en el mismo componente renderiza todo. Esto se podria optimizar porque
+                          para eso está el componente padre el cual podría enviar el observable y renderizar de uno
+                          en uno.
+                          La única comunicación hijo-padre es cuando el botón eliminar es activado.
+
+-Login: Es un componente en el cual se leen dos datos (email,contraseña) y se envián al correspondiente services,
+luego en función del resultado se muestra un mensaje de sweet alert. Y se procede a hacer la acción requerida, el
+componente LOGIN es el componente que se renderiza de inicio por defecto.
+
+-test-log: Fue un componente de prueba.
+
+-GUARDS:
+  Permition.guards: Es el unico componente de tipo Guard: En este se valida que el token no haya expirado y que tenga
+  un valor valido, en caso contrario envia un mensaje por consola.
+  Con este guard controlamos el acceso a la ruta de Home principalmente, lo ideal es hacer que de manera inversa cuando
+  haya acceso a Home, se bloquee el acceso a LOGIN para no iniciar de nuevo sesión, pero por temas de tiempos no fue ejecutado.
+
+  El punto dishes también tiene restricción pero no tiene uso.
+
+  El punto para testing no posee la restricción.
+
+
+-SERVICES
+  -addmenu.service: Servicio encargado de almacenar mediante observables el menu añadido por el usuario, el total,
+  promedio de tiempo de preparación, el promedio de puntaje saludable. En este servicio también se actualiza el valor
+  de cada uno de los items anteriormente mencionados y adicionalmente se verifican las condiciones limite de
+  sólo 2 platos veganos, 2 platos no veganos y 4 platos máximo.
+
+  Este service esta conectado con el componente hijo de HOME llamado "current-dishes" y directamente con HOME.
+
+  -Api.service: Servicio encargado de hacer el llamado a la api de "Spoonacular".
+
+  -connect-headlogin.service: Este servicio su única función es actualizar el valor de Logout, para que se visualizado
+  cuando ya hizo el login correcto, en caso contrario no se debe visualizar el logout.
+
+  -user.service: Servicio encargado de tener la función para llamar a la API de alkemy que verificará el correo y
+  contraseña dados en el reto. Dentro de este mismo se hace el llamado a un método para verificar la veracidad y si
+  aún está vigente.
+
+
+Dentro de cada componente se procederá a comentar las funciones y sus usos.
+

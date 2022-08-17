@@ -1,3 +1,11 @@
+.products{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap:10px ;
+  margin-top:10px ;
+  padding: 10px 10px 10px 10px;
+  max-width:800px;
+}
 
 .card-header{
   display: flex;
@@ -44,4 +52,22 @@
 
 .card-text{
   font-style: bold;
+}
+
+.total_container{
+ font-size: 1.3em;
+}
+
+@media (min-width: 700px){
+  .products{
+    grid-template-columns: auto auto auto;
+    max-width:1000px;
+  }
+}
+
+@media (min-width: 1024px){
+  .products{
+    grid-template-columns: auto auto auto auto;
+    max-width:1400px;
+  }
 }

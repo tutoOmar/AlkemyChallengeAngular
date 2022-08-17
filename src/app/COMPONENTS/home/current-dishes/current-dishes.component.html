@@ -1,0 +1,21 @@
+<div class="products">
+  <div class="card border-success" *ngFor="let item of menu$ |async">
+    <div class="card-header">Dish: {{item.title}}</div>
+    <div class="card-body text-success">
+      <img class="card-img-top"src={{item.image}} alt="">
+      <h5 class="card-title">Nutrition: </h5>
+      <p class="card-text"><strong>Price: </strong> {{item.pricePerServing}} <strong> - HealthScore: </strong> {{item.healthScore}} <strong>Cooking Time: </strong>  {{item.readyInMinutes}} <strong>- Vegan :</strong>{{item.vegan}}   </p>
+      <a class="btn Eliminate-btn btn-primary" (click)="eliminate(item)"> Eliminate <i class="fa-solid fa-x"></i></a>
+    </div>
+  </div>
+</div>
+
+
+<div class="total_container">
+  <p class="total_price"> <strong>Total: </strong> {{total$ | async | currency}}</p>
+  <p class="total_healthScore"><strong>Average HealthScore : </strong>{{healthScore$ | async}}</p>
+  <p class="total_cookingTime"><strong>Average Cooking Time : </strong>{{cookingTime$ | async}}</p>
+</div>
+
+
+

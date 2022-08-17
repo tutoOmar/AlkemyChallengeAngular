@@ -1,1 +1,10 @@
-<p>menu-dish works!</p>
+<div class="card border-success ">
+  <div class="card-header">Dish: {{dish.title}}</div>
+  <div class="card-body text-success">
+    <img class="card-img-top"src={{dish.image}} alt="">
+    <h5 class="card-title">Information: </h5>
+    <p class="card-text"><strong>Price: </strong> {{dish.pricePerServing}} <strong> - HealthScore: </strong> {{dish.healthScore}} <strong>Cooking Time: </strong>  {{dish.readyInMinutes}} <strong>- Vegan :</strong>  {{vegan_s}} </p>
+    <a class="btn detail-btn btn-primary" (click)="addMenu()"> Add <i class="fa-solid fa-plus"></i></a>
+  </div>
+</div>
+

@@ -1,0 +1,84 @@
+#Este codigo fue desarrollado y programado por Omar Juniors Ortiz Paz, desde la ciudad de Bogotá, Colombia
+Este mismo es un reto de la empresa Alkemy, en el se especifican los siguiente requisitos, con un check ✅, se marcan
+los puntos entregados al detalle y con ❌ los requisitos no cumplidos  :
+
+Requerimientos funcionales ⚙️
+
+En la pantalla de Home se deberá mostrar, además de los platos que conforman el menú:
+● Acumulativo de precio del menú.✅
+● Promedio de tiempo de preparación entre todos los platos.✅
+● Promedio de Healt Score entre todos los platos.✅
+● El menú debe tener 4 platos. Debe haber 2 veganos y 2 que no lo sean. Esto debe✅
+validarse al intentar agregar un nuevo plato.
+● Se deberá poder eliminar un plato del menú, lo que generará nuevamente los
+promedios y acumulativos (utilizando Servicios deberán estar almacenados en un
+estado de este)✅
+
+Requerimientos técnicos 🔧
+
+Aprovechando las características de Angular, deberán crearse las siguientes secciones, y
+modularizar las mismas en componentes reutilizables.
+Además, para el manejo de peticiones HTTP deberá utilizarse HttpClient. Y el sitio deberá ser
+responsive, y utilizar Bootstrap o cualquier otro framework como punto de partida para
+aprovechar las características.
+
+1. Formulario de Login ✅
+El formulario se deberá renderizar al ingresar a cualquier ruta si el usuario no está
+autenticado, conteniendo los campos:
+● Email.
+● Password.
+● Botón de “Enviar”.
+Al hacer click en “Enviar”, se deberá validar con ReactiveFormsModule que ambos campos
+no estén vacíos, y mostrar un mensaje al usuario si lo estuviesen. Caso contrario, se deberá
+realizar una petición POST a la siguiente url, con los campos email y password en el BODY.
+Los datos válidos para obtener un token son:
+● Email: challenge@alkemy.org
+● Password: react
+Se debe mostrar algún tipo de feedback al usuario mientras se está procesando la petición,
+no permitiendo que vuelva a accionar el botón de login hasta obtener una respuesta.
+En el caso de obtener un error de la API, se deberá mostrar una alerta (utilizando sweet
+alert), mientras que si es satisfactorio deberá redirigir al Home y almacenar el token
+obtenido en localStorage.✅
+
+2. Platos ✅
+El Home de la aplicación mostrará los platos del menú en un listado. Cada ítem (el cuál debe
+ser un componente separado) del listado contendrá:
+● Nombre del plato.
+● Imagen.
+● Características del plato.
+● Acciones para ver el detalle o eliminarlo del menú.
+
+3. Buscador de Platos ✅
+Para agregar un plato al menú, se deberá visualizar un formulario que realice una petición
+GET al endpoint de búsqueda y muestre los resultados disponibles en un grid, utilizando el
+componente de ítem del punto anterior.
+El formulario deberá buscar únicamente si hay más de 2 caracteres en el filtro utilizando
+debounce, caso contrario no debe mostrar nada.❌
+
+4. Detalle del Plato ❌
+Al hacer click en un plato del menú, se mostrarán los detalles de los campos acumulados y
+promediados en el menú.
+
+5. Navegación entre secciones ✅
+Las diferentes secciones que tendrá la app deberán protegerse verificando que el usuario
+autenticado disponga de un token que se almacenará en localStorage. El mismo, se
+obtendrá de una API con datos de muestra. Si un usuario intenta ingresar a cualquier ruta
+sin estar autenticado, deberá ser redirigido al login y en caso de cerrar la sesion, el token
+deberá borrarse. Para el manejo de rutas se deberá utilizar RouterModule y Guards.
+
+
+* Ningún requisito de bonus track fue realizado.
+
+
+En el caso de los apartados no realizados esto es debido a:
+
+Debounce: Es una nueva función no conocida por el desarrollador y que por tiempo implementó de otra forma,
+aunque es consiente del uso y los beneficios de la misma.
+
+En el caso detalle plato: El desarrollador no tenia muy claro como debia ser presentada esta información
+de tal manera que optó por mostrar el producto de otra forma dentro de la busqueda y ahí mismo podría ser añadido.
+
+La estructura general del proyecto y explicación de archivos y manejo de carpetas es explicado en el archivo de texto dentro de la carpeta
+app y es llamado Estructura.txt
+
+

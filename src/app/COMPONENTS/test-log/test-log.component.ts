@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl,Validators} from '@angular/forms';
+import { Router } from '@angular/router';
+import { AddmenuService } from 'src/app/SERVICES/addmenu.service';
 
 import swal from'sweetalert2';
 
@@ -9,29 +11,11 @@ import swal from'sweetalert2';
   styleUrls: ['./test-log.component.css']
 })
 export class TestLogComponent implements OnInit {
-  contactForm= new FormGroup({
-    email : new FormControl('',[Validators.required,Validators.minLength(1),Validators.email]),
-    pass : new FormControl('',[Validators.required,Validators.minLength(1)])
-  });
-  titleAlert : string='';
-
-  user = {
-    email:'',
-    pass:''
-  }
-  constructor() { }
-
+  quantity$ = this.addMenu.quantityAction$;
+  total$=this.addMenu.totalAction$;
+  menu$ = this.addMenu.menuAction$;
+  constructor(private addMenu: AddmenuService,private router:Router) { }
   ngOnInit(): void {
-
-  }
-
-
-  send(){
-    console.warn(this.contactForm.value);
-    this.user = this.contactForm.value;
-    swal.fire('Good job!',
-    'You clicked the button!',
-    'success')
 
   }
 }

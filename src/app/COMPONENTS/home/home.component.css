@@ -1,67 +1,30 @@
 .products{
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto auto;/*Dos columnas para mostrar en mobile*/
   grid-gap:10px ;
   margin-top:10px ;
   padding: 10px 10px 10px 10px;
   max-width:800px;
 }
-
-.card-header{
-  display: flex;
-  justify-content: center;
-  height: 80px;
-  border-style: solid;
-  border-color: green;
-  border-width: 0.01em;
-  background-color: rgb(93, 153, 93);
-  color: bisque;
-  font-size: 0.9em;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  margin-top: auto;
+.d-flex{
+  margin-left: 10px;
+  width: 300px;
 }
-
-.card-img-top{
-  border-style:solid;
-  border-width: 1px;
-  border-color: rgb(34, 161, 66);
-  margin-bottom: 10px;
+.title_products{
+  color:black;
+  font-weight: 300;
 }
-
-.btn{
-  margin-left: 7px;
-  background-color: rgb(41, 105, 41);
-  font-size: smaller;
-  color: bisque;
-}
-
-.Eliminate-btn{
-  background-color: rgb(133, 56, 56);
-}
-
-.btn:hover{
-  background-color: rgb(73, 124, 73);
-}
-
-
-.Eliminate-btn:hover{
-  background-color: rgb(133, 74, 74);
-}
-
-
 
 @media (min-width: 700px){
   .products{
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto auto;/*TRes columnas para mostrar en ipads*/
     max-width:1000px;
   }
 }
 
 @media (min-width: 1024px){
   .products{
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto auto; /*Cuatro columnas para mostrar en PC*/
     max-width:1400px;
   }
 }

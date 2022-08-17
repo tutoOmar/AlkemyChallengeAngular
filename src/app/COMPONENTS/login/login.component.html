@@ -18,11 +18,12 @@
     <label for="email" class="form-label">Email: </label>
     <input id="email" type="text" formControlName="email" class="form-control">
     <div *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.errors?.['required']  ||  contactForm.get('email')?.errors?.['email'] " class="alert alert-danger" role="alert">Este campo es requerido</div>
-
+    <!-- Vemos las conficiones de mensajes, se ejecutan cuando se toca el input y no se han cumplido los requisitos Validators -->
     <label for="password" class="form-label">passwordword: </label>
     <input id="password" type="text" formControlName="password" class="form-control">
     <div *ngIf="contactForm.get('password')?.touched && contactForm.get('password')?.errors?.['required']" class="alert alert-danger" role="alert">Este campo es requerido</div>
 
     <button class="btn btn-primary" type="submit" [disabled]="!contactForm.valid">  Submit</button>
+      <!-- El Disabled genera que si alguno de los campos esta invalido no pueda enviar nada, y esto evita llamados a la API en vano -->
 </form>
 </div>
